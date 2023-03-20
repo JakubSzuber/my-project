@@ -8,10 +8,7 @@ on:
 
 jobs:
   build:  # This job will be executed through the ubuntu-latest, windows-latest, and macOS-latest hosted runners
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+    runs-on: ubuntu-22.04
 
     steps:
     - uses: actions/checkout@v2
