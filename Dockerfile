@@ -7,5 +7,15 @@
 
 # ENTRYPOINT ["java", "-jar", "my-app-1.0-SNAPSHOT.jar"]
 
-FROM alpine:latest
-CMD echo "Hello, World!"
+
+FROM adoptopenjdk:11-jdk-hotspot
+
+EXPOSE 8080
+
+WORKDIR /app
+
+COPY . .
+
+RUN ./gradlew build
+
+CMD ["java", "-jar", "build/libs/myapp.jar"]
